@@ -1,17 +1,26 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
   connect() {
-    console.log("Hello coconut")
+    console.log("Hello coconut");
+  }
+
+  initialize() {
+    this.isDragging = false;
   }
 
   mousedown() {
-    console.log("mousedown wee!")
+    this.isDragging = true;
+    console.log("mousedown wee!");
   }
   mouseup() {
-    console.log("mouseup wee!")
+    this.isDragging = false;
+    console.log("mouseup wee!");
   }
   mousemove() {
-    console.log("mousemove wee!")
+    if (!this.isDragging) {
+      return;
+    }
+    console.log("mousemove wee!");
   }
 }
