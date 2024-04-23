@@ -11,18 +11,28 @@ export default class extends Controller {
     this.yOffset = 0;
   }
 
-  mousedown() {
+  mousedown(event) {
     this.isDragging = true;
-    console.log("mousedown wee!");
+
+    this.initialX = event.clientX - this.xOffset;
+    this.initialY = event.clientY - this.yOffset;
+
+    this.element.style.border = `solid 5px`
+    this.element.style.borderColor = `blueviolet`
   }
   mouseup() {
     this.isDragging = false;
-    console.log("mouseup wee!");
+    this.element.style.border = ``
+
   }
-  mousemove() {
+  mousemove(event) {
     if (!this.isDragging) {
       return;
     }
-    console.log("mousemove wee!");
+
+    this.xOffset = event.clientX - this.initialX;
+    this.yOffset = event.clientY - this.initialY;
+
+    this.element.style.transform = `translate(${this.xOffset}px, ${this.yOffset}px)`;
   }
 }

@@ -9,3 +9,7 @@
 .bg-lightgreen {
     background-color: lightgreen;
 }
+
+.p-absolute {
+    position: absolute;
+}
