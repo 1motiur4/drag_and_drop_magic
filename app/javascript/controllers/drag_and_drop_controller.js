@@ -7,6 +7,8 @@ export default class extends Controller {
 
   initialize() {
     this.isDragging = false;
+    this.xOffset = 0;
+    this.yOffset = 0;
   }
 
   mousedown() {
